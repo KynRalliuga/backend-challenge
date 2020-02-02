@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Color;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -17,12 +17,9 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+$factory->define(Color::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => Hash::make('654321'), // password
-        'remember_token' => Str::random(10),
+        'nome_cor' => $faker->colorName,
+        'hex_code_cor' => $faker->hexcolor,
     ];
 });
