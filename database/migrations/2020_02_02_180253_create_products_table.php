@@ -15,14 +15,15 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->engine = 'InnoDB';
-            
+
             $table->bigIncrements('id');
             $table->unsignedBigInteger('color_id')->nullable();
             $table->unsignedBigInteger('user_id')->notNullable();
             $table->string('titulo')->notNullable();
             $table->longText('descricao')->nullable();
+            $table->integer('quantidade')->notNullable();
             $table->string('cores_array')->nullable();
-            $table->foreign('color_id')->references('id')->on('colors');
+            $table->foreign('color_id')->references('id')->on('colors')->onDelete('set null');;
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

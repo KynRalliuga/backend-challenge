@@ -19,8 +19,9 @@ use Illuminate\Support\Str;
 
 $factory->define(Product::class, function (Faker $faker) {
     return [
-        'titulo' => $faker->name,
+        'titulo' => $faker->word,
         'descricao' => $faker->text,
+        'quantidade' => $faker->numberBetween(0,100),
         'cores_array' => '[' . $faker->numberBetween(1,10) . ',' . $faker->numberBetween(1,10) . ',' . $faker->numberBetween(1,10) . ',' . $faker->numberBetween(1,10) . ']',
         'color_id' => $faker->numberBetween(1,10),
         'user_id' => $faker->numberBetween(1,10),
